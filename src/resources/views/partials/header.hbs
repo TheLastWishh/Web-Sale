@@ -1,0 +1,88 @@
+{{! Top Header }}
+<div id='top-header'>
+    <div class='container d-flex justify-content-between'>
+        <ul class='header-links'>
+            <li><a href='#'><i class='fa-solid fa-phone-volume'></i>
+                    +021-95-51-84</a></li>
+            <li><a href='#'><i class='fa-regular fa-envelope'></i>
+                    abcxyz@gmail.com</a></li>
+            <li><a href='#'><i class='fa-solid fa-location-dot'></i>
+                    xx Hai Bà Trưng, Hà Nội</a></li>
+        </ul>
+        <ul class='header-links'>
+            <li><a href='#'><i class='fa-solid fa-dollar-sign'></i>
+                    USD</a></li>
+            <li><a href='#'><i class='fa-regular fa-circle-user'></i>
+                    My Account</a></li>
+        </ul>
+    </div>
+</div>
+
+{{! MAIN HEADER }}
+<div id='header'>
+    <div class='container'>
+        <div class='row'>
+            {{! LOGO }}
+            <div class='col-md-3'>
+                <div class='header-logo'>
+                    <a href='#' class='logo'><img
+                            src='./img/logo.png'
+                            alt='ElectroHub'
+                        /></a>
+                </div>
+            </div>
+
+            {{! SEARCH BAR }}
+            <div class='col-md-6'>
+                <form class='d-flex' role='search'>
+                    <input
+                        class='form-control me-2'
+                        type='search'
+                        placeholder='Search'
+                        aria-label='Search'
+                    />
+                    <button class='btn btn-outline-success' type='submit'><i
+                            class='fa-solid fa-magnifying-glass'
+                        ></i></button>
+                </form>
+            </div>
+
+            {{! ACCOUNT }}
+            <div class='col-md-3'>
+                <div class='header-ctn d-flex'>
+                    {{! Account and order }}
+                    <div>
+                        <a href='#'>
+                            <span>Tài Khoản Và Đơn Mua</span>
+                        </a>
+                    </div>
+
+                    {{! Cart }}
+                    <div class='btn-group'>
+                        <button
+                            type='button'
+                            class='btn btn-dark dropdown-toggle'
+                            data-bs-toggle='dropdown'
+                            aria-expanded='false'
+                        >
+                            <i class='fa-solid fa-cart-shopping'></i>
+                            Giỏ hàng
+                        </button>
+                        <ul class='dropdown-menu'>
+                            <li><a
+                                    class='dropdown-item'
+                                    href='#'
+                                >Action</a></li>
+                            <li><a class='dropdown-item' href='#'>Another action</a></li>
+                            <li><a class='dropdown-item' href='#'>Something else
+                                    here</a></li>
+                            <li><hr class='dropdown-divider' /></li>
+                            <li><a class='dropdown-item' href='#'>Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

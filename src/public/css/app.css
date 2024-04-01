@@ -1,0 +1,61 @@
+/*=========================================================
+	01 -> GENERAL
+===========================================================*/
+/*----------------------------*\
+	Typography
+\*----------------------------*/
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #333; }
+
+/*=========================================================
+	02 -> HEADER
+===========================================================*/
+/*----------------------------*\
+	Top header
+\*----------------------------*/
+#top-header {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  background-color: #1e1f29; }
+
+.header-links {
+  margin: 0; }
+
+.header-links li {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 12px; }
+
+.header-links li:last-child {
+  margin-right: 0; }
+
+.header-links li a {
+  color: #fff; }
+
+.header-links li a:hover {
+  color: #d10024; }
+
+.header-links li i {
+  color: #d10024;
+  margin-right: 5px; }
+
+/*----------------------------*\
+	Logo
+\*----------------------------*/
+#header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #15161d; }
+
+.header-logo {
+  float: left; }
+
+.header-logo .logo img {
+  display: block;
+  width: 15rem; }
+
+/*----------------------------*\
+	Search
+\*----------------------------*/
