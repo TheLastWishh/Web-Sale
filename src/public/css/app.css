@@ -59,3 +59,23 @@ body {
 /*----------------------------*\
 	Search
 \*----------------------------*/
+
+
+a {
+  color:white; 
+}
+
+a {
+  font-size: 14px; /* Kích thước chữ là 14px */
+}
+
+.footer a {
+  text-decoration: none; /* Loại bỏ gạch chân cho các liên kết trong footer */
+}
+
+.footer {
+  border-top: 1px solid #ccc; /* Đường kẻ giữa phần footer và phần còn lại của trang web */
+  margin-top: 20px; /* Tạo một khoảng cách 20px giữa footer và phần còn lại của trang web */
+  padding-top: 20px; /* Hoặc sử dụng padding thay vì margin nếu bạn muốn thêm khoảng cách bên trong footer */
+}
+
