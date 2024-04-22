@@ -21,40 +21,44 @@
 {{! MAIN HEADER }}
 <div id='header'>
     <div class='container'>
-        <div class='row'>
+        <div class='row d-flex align-items-center'>
             {{! LOGO }}
             <div class='col-md-3'>
                 <div class='header-logo'>
-                    <a href='#' class='logo'><img
-                            src='./img/logo.png'
+                    <a href='/' class='logo'><img
+                            src='/img/logo.png'
                             alt='ElectroHub'
                         /></a>
                 </div>
             </div>
 
             {{! SEARCH BAR }}
-            <div class='col-md-6'>
-                <form class='d-flex' role='search'>
-                    <input
-                        class='form-control me-2'
-                        type='search'
-                        placeholder='Search'
-                        aria-label='Search'
-                    />
-                    <button class='btn btn-outline-success' type='submit'><i
-                            class='fa-solid fa-magnifying-glass'
-                        ></i></button>
-                </form>
+            <div class='col-md-4'>
+                <div class='header-search' role='search'>
+                    <form>
+                        <input
+                            class='input-search'
+                            type='search'
+                            placeholder='Bạn cần tìm gì ?'
+                            aria-label='Search'
+                            maxlength='100'
+                        />
+                        <button class='btn-search' type='submit'><i
+                                class='fa-solid fa-magnifying-glass'
+                            ></i></button>
+                    </form>
+                </div>
             </div>
 
             {{! ACCOUNT }}
-            <div class='col-md-3'>
-                <div class='header-ctn d-flex'>
-                    {{! Account and order }}
+            <div class='col-md-5'>
+                <div class='header-ctn d-flex justify-content-between'>
+                    {{! Delivery Tracking }}
                     <div>
-                        <a href='#'>
-                            <span>Tài Khoản Và Đơn Mua</span>
-                        </a>
+                        <button class='btn btn-dark delivery-tracking'>
+                            <i class='fa-solid fa-truck-fast'></i>
+                            Tra cứu đơn mua
+                        </button>
                     </div>
 
                     {{! Cart }}
@@ -80,9 +84,67 @@
                             <li><a class='dropdown-item' href='#'>Separated link</a></li>
                         </ul>
                     </div>
+
+                    {{! Account }}
+                    <div class='btn-group'>
+                        <button
+                            type='button'
+                            class='btn btn-dark dropdown-toggle'
+                            data-bs-toggle='dropdown'
+                            aria-expanded='false'
+                        >
+                            <i class='fa-regular fa-circle-user'></i>
+                            Tài Khoản
+                        </button>
+                        <ul class='dropdown-menu'>
+                            <li><a
+                                    class='dropdown-item'
+                                    href='/user/sign-in'
+                                >Đăng Nhập</a></li>
+                            <li><a
+                                    class='dropdown-item'
+                                    href='/user/sign-up'
+                                >Đăng Ký</a></li>
+                            {{! <li><hr class='dropdown-divider' /></li> }}
+                        </ul>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+
+{{! NAVIGATION }}
+<nav class='navbar navbar-expand-lg'>
+    <!-- container -->
+    <div class='container'>
+        <button
+            class='navbar-toggler'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#navbarNav'
+            aria-controls='navbarNav'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+        >
+            <span class='navbar-toggler-icon'></span>
+        </button>
+        <!-- responsive-nav -->
+        <div id='navbarNav responsive-nav' class='collapse navbar-collapse'>
+            <!-- NAV -->
+            <ul class='main-nav nav navbar-nav'>
+                <li class='nav-item active'><a href='#' class='nav-link'>Trang
+                        chủ</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Ti vi</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Tủ lạnh</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Điều hòa</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Gia dụng</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Máy giặt</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Lọc nước</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Nóng lạnh</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Bếp điện</a></li>
+                <li class='nav-item'><a href='#' class='nav-link'>Quạt</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
