@@ -13,7 +13,7 @@
 </div>
 <!-- BREADCRUMB  end-->
 
-<div id='login'>
+<div class='login'>
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-lg-6 mx-auto'>
@@ -23,6 +23,8 @@
                         <div class='col-md-12'>
                             <label for='username' class='form-label'>Tên Đăng
                                 Nhập</label>
+                            <br />
+                            <i class='text-danger'>{{message}}</i>
                             <input
                                 id='username'
                                 name='username'
@@ -62,7 +64,8 @@
                             />
                         </div>
                         <div class='col-md-6'>
-                            <label for='retype' class='form-label'>Mật Khẩu</label>
+                            <label for='retype' class='form-label'>Nhập Lại Mật
+                                Khẩu</label>
                             <input
                                 id='retype'
                                 name='retypePassword'

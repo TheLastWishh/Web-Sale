@@ -4,7 +4,7 @@ const app = express();
 const handlebars = require('express-handlebars');
 const engine = handlebars.engine;
 const session = require('express-session');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const port = 3000;
 
 const route = require('./routes');
