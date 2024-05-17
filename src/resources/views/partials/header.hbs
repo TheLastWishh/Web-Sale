@@ -12,25 +12,20 @@
         <ul class='header-links'>
             <li><a href='#'><i class='fa-solid fa-dollar-sign'></i>
                     USD</a></li>
-            <li><a href='/user/my-account'><i
-                        class='fa-regular fa-circle-user'
-                    ></i>
+            <li><a href='/user/my-account'><i class='fa-regular fa-circle-user'></i>
                     My Account</a></li>
         </ul>
     </div>
 </div>
 
 {{! MAIN HEADER }}
-<div id='header'>
+<div id='main-header'>
     <div class='container'>
         <div class='row d-flex align-items-center'>
             {{! LOGO }}
             <div class='col-md-3'>
                 <div class='header-logo'>
-                    <a href='/' class='logo'><img
-                            src='/img/logo.png'
-                            alt='ElectroHub'
-                        /></a>
+                    <a href='/' class='logo'><img src='/img/logo.png' alt='ElectroHub' /></a>
                 </div>
             </div>
 
@@ -38,16 +33,8 @@
             <div class='col-md-4'>
                 <div class='header-search' role='search'>
                     <form>
-                        <input
-                            class='input-search'
-                            type='search'
-                            placeholder='Bạn cần tìm gì ?'
-                            aria-label='Search'
-                            maxlength='100'
-                        />
-                        <button class='btn-search' type='submit'><i
-                                class='fa-solid fa-magnifying-glass'
-                            ></i></button>
+                        <input class='input-search' type='search' placeholder='Bạn cần tìm gì ?' aria-label='Search' maxlength='100' />
+                        <button class='btn-search' type='submit'><i class='fa-solid fa-magnifying-glass'></i></button>
                     </form>
                 </div>
             </div>
@@ -65,23 +52,14 @@
 
                     {{! Cart }}
                     <div class='btn-group'>
-                        <button
-                            type='button'
-                            class='btn btn-dark dropdown-toggle'
-                            data-bs-toggle='dropdown'
-                            aria-expanded='false'
-                        >
+                        <button type='button' class='btn btn-dark dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
                             <i class='fa-solid fa-cart-shopping'></i>
                             Giỏ hàng
                         </button>
                         <ul class='dropdown-menu'>
-                            <li><a
-                                    class='dropdown-item'
-                                    href='#'
-                                >Action</a></li>
+                            <li><a class='dropdown-item' href='#'>Action</a></li>
                             <li><a class='dropdown-item' href='#'>Another action</a></li>
-                            <li><a class='dropdown-item' href='#'>Something else
-                                    here</a></li>
+                            <li><a class='dropdown-item' href='#'>Something else here</a></li>
                             <li><hr class='dropdown-divider' /></li>
                             <li><a class='dropdown-item' href='#'>Separated link</a></li>
                         </ul>
@@ -89,24 +67,13 @@
 
                     {{! Account }}
                     <div class='btn-group'>
-                        <button
-                            type='button'
-                            class='btn btn-dark dropdown-toggle'
-                            data-bs-toggle='dropdown'
-                            aria-expanded='false'
-                        >
+                        <button type='button' class='btn btn-dark dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
                             <i class='fa-regular fa-circle-user'></i>
                             Tài Khoản
                         </button>
                         <ul class='dropdown-menu'>
-                            <li><a
-                                    class='dropdown-item'
-                                    href='/user/sign-in'
-                                >Đăng Nhập</a></li>
-                            <li><a
-                                    class='dropdown-item'
-                                    href='/user/sign-up'
-                                >Đăng Ký</a></li>
+                            <li><a class='dropdown-item' href='/user/sign-in'>Đăng Nhập</a></li>
+                            <li><a class='dropdown-item' href='/user/sign-up'>Đăng Ký</a></li>
                             {{! <li><hr class='dropdown-divider' /></li> }}
                         </ul>
                     </div>
@@ -120,32 +87,17 @@
 <nav class='navbar navbar-expand-lg'>
     <!-- container -->
     <div class='container'>
-        <button
-            class='navbar-toggler'
-            type='button'
-            data-bs-toggle='collapse'
-            data-bs-target='#navbarNav'
-            aria-controls='navbarNav'
-            aria-expanded='false'
-            aria-label='Toggle navigation'
-        >
-            <span class='navbar-toggler-icon'></span>
-        </button>
         <!-- responsive-nav -->
         <div id='navbarNav responsive-nav' class='collapse navbar-collapse'>
             <!-- NAV -->
             <ul class='main-nav nav navbar-nav'>
-                <li class='nav-item active'><a href='#' class='nav-link'>Trang
-                        chủ</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Ti vi</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Tủ lạnh</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Điều hòa</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Gia dụng</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Máy giặt</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Lọc nước</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Nóng lạnh</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Bếp điện</a></li>
-                <li class='nav-item'><a href='#' class='nav-link'>Quạt</a></li>
+                <li class='nav-item active'><a href='#' class='nav-link'>Trang chủ</a></li>
+                <li class='nav-item'><a href='/store/Ti vi' class='nav-link'>Ti vi</a></li>
+                <li class='nav-item'><a href='/store/Tủ lạnh' class='nav-link'>Tủ lạnh</a></li>
+                <li class='nav-item'><a href='/store/Quạt' class='nav-link'>Quạt</a></li>
+                <li class='nav-item'><a href='/store/Điều hòa nhiệt độ' class='nav-link'>Điều hòa nhiệt độ</a></li>
+                <li class='nav-item'><a href='/store/Máy lọc nước' class='nav-link'>Máy lọc nước</a></li>
+                <li class='nav-item'><a href='/store/Bình nóng lạnh' class='nav-link'>Bình nóng lạnh</a></li>
             </ul>
         </div>
     </div>
