@@ -21,104 +21,33 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
         <link rel="stylesheet" href="/css/app.css" />
     </head>
     <body>
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button
-                    class="nav-link active"
-                    id="nav-home-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-home"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-home"
-                    aria-selected="true"
-                >
-                    Home
-                </button>
-                <button
-                    class="nav-link"
-                    id="nav-profile-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-profile"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-profile"
-                    aria-selected="false"
-                >
-                    Profile
-                </button>
-                <button
-                    class="nav-link"
-                    id="nav-contact-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-contact"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-contact"
-                    aria-selected="false"
-                >
-                    Contact
-                </button>
-                <button
-                    class="nav-link"
-                    id="nav-disabled-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-disabled"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-disabled"
-                    aria-selected="false"
-                    disabled
-                >
-                    Disabled
-                </button>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="src/public/img/product/Smart Tivi 4K Sony KD-55X75K 55 inch Google TV.jpg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                    <img src="src/public/img/product/Smart Tivi 4K Sony KD-55X75K 55 inch Google TV.jpg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                    <img src="src/public/img/product/Smart Tivi 4K Sony KD-55X75K 55 inch Google TV.jpg" class="d-block w-100" alt="..." />
+                </div>
             </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-            <div
-                class="tab-pane fade show active"
-                id="nav-home"
-                role="tabpanel"
-                aria-labelledby="nav-home-tab"
-                tabindex="0"
-            >
-                123456
-            </div>
-            <div
-                class="tab-pane fade"
-                id="nav-profile"
-                role="tabpanel"
-                aria-labelledby="nav-profile-tab"
-                tabindex="0"
-            >
-                789101112
-            </div>
-            <div
-                class="tab-pane fade"
-                id="nav-contact"
-                role="tabpanel"
-                aria-labelledby="nav-contact-tab"
-                tabindex="0"
-            >
-                13141516
-            </div>
-            <div
-                class="tab-pane fade"
-                id="nav-disabled"
-                role="tabpanel"
-                aria-labelledby="nav-disabled-tab"
-                tabindex="0"
-            >
-                17181920
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                <span class="prev-icon"><i class="fa-solid fa-chevron-left"></i></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                <span class="next-icon"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

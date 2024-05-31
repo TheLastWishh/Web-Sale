@@ -5,7 +5,8 @@
             <div class='col-md-12'>
                 <ul class='breadcrumb-tree'>
                     <li><a href='/'>Trang chủ</a></li>
-                    <li class='active'>Đăng nhập</li>
+                    <li><a href='/'>{{classify.GroupProductName}}</a></li>
+                    <li class='active'>{{classify.ProductCategoryName}}</li>
                 </ul>
             </div>
         </div>
@@ -13,32 +14,37 @@
 </div>
 <!-- BREADCRUMB END-->
 
+<!-- SECTION START-->
 <div class='section'>
     <div class='container-fluid'>
         <div class='row'>
             {{! ASIDE }}
             <div id='aside' class='col-md-3'>
                 <div class='aside'>
-                    <h3 class='aside-title'>Danh Mục Sản Phẩm</h3>
-                    <div class='checkbox-filter'>
-                        <div class='input-checkbox'>
-                            <input type='checkbox' id='category-1' />
-                            <label for='category-1'>
-                                Laptop
-                            </label>
-                        </div>
-                    </div>
+                    <h3 class='aside-title'>Danh mục sản phẩm</h3>
+                    {{#if listCat}}
+                        {{#each listCat}}
+                            <div class='checkbox-filter'>
+                                <div class='input-checkbox'>
+                                    <input type='checkbox' id='category-1' />
+                                    <label for='category-1'>
+                                        <a href='/store/{{this.ProductCategoryName}}'>{{this.ProductCategoryName}}</a>
+                                    </label>
+                                </div>
+                            </div>
+                        {{/each}}
+                    {{/if}}
                 </div>
 
                 <div class='aside'>
                     <h3 class='aside-title'>Hãng</h3>
-                    {{#if listBrand}}
-                        {{#each listBrand}}
+                    {{#if listSupplier}}
+                        {{#each listSupplier}}
                             <div class='checkbox-filter'>
                                 <div class='input-checkbox'>
-                                    <input type='checkbox' id='brand-1' />
-                                    <label for='brand-1'>
-                                        {{this.SupplierName}}
+                                    <input type='checkbox' id='supplier-1' />
+                                    <label for='supplier-1'>
+                                        <a href='/store/{{this.category}}/{{this.SupplierName}}'>{{this.SupplierName}}</a>
                                     </label>
                                 </div>
                             </div>
@@ -51,42 +57,45 @@
             {{! STORE }}
             <div id='store' class='col-md-9'>
                 {{! STORE PRODUCT }}
-                {{#if listByCat}}
-                    {{#each listByCat}}
-                        <div class='col-md-4 col-xs-6'>
-                            <div class='product'>
-                                <div class='product-img'>
-                                    <img src='/{{this.ImgProduct}}' alt='{{this.ProductName}}' />
-                                    <div class='product-label'>
-                                        <span class='sale'>-30%</span>
-                                        <span class='new'>NEW</span>
+                <div class='row'>
+                    {{#if listProduct}}
+                        {{#each listProduct}}
+                            <div class='col-md-4 col-xs-6'>
+                                <div class='product'>
+                                    <div class='product-img'>
+                                        <img src='/{{this.ImgProduct}}' alt='{{this.ProductName}}' />
+                                        <div class='product-label'>
+                                            <span class='sale'>-30%</span>
+                                            <span class='new'>NEW</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class='product-body'>
-                                    <h3 class='product-name'><a href='#'>{{this.ProductName}}</a></h3>
-                                    <h4 class='product-price'>
-                                        {{this.Price}}
-                                        <i class='fa-solid fa-dong-sign'></i>
-                                        <del class='product-old-price'>{{this.UnitPrice}}<i class='fa-solid fa-dong-sign'></i></del>
-                                    </h4>
-                                    <div class='product-rating'>
-                                        <i class='fa fa-star'></i>
-                                        <i class='fa fa-star'></i>
-                                        <i class='fa fa-star'></i>
-                                        <i class='fa fa-star'></i>
-                                        <i class='fa fa-star'></i>
+                                    <div class='product-body'>
+                                        <h3 class='product-name'><a href='/store/{{this.ProductName}}/details'>{{this.ProductName}}</a></h3>
+                                        <h4 class='product-price'>
+                                            {{this.Price}}
+                                            <i class='fa-solid fa-dong-sign'></i>
+                                            <del class='product-old-price'>{{this.UnitPrice}}<i class='fa-solid fa-dong-sign'></i></del>
+                                        </h4>
+                                        <div class='product-rating'>
+                                            <i class='fa fa-star'></i>
+                                            <i class='fa fa-star'></i>
+                                            <i class='fa fa-star'></i>
+                                            <i class='fa fa-star'></i>
+                                            <i class='fa fa-star'></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class='add-to-cart'>
-                                    <button class='add-to-cart-btn'><i class='fa fa-shopping-cart'></i> Thêm vào giỏ hàng</button>
+                                    <div class='add-to-cart'>
+                                        <button class='add-to-cart-btn'><i class='fa fa-shopping-cart'></i> Thêm vào giỏ hàng</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {{/each}}
-                {{/if}}
+                        {{/each}}
+                    {{/if}}
+                </div>
                 {{! /STORE PRODUCT }}
             </div>
             {{! /STORE }}
         </div>
     </div>
 </div>
+<!-- SECTION START-->

@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const storeController = require('../app/controllers/StoreController');
 
-router.get('/:name', storeController.listByCat);
+router.post('/comment/create-comment', storeController.createComment);
+router.get('/:ProductName/details', storeController.productDetails);
+router.get('/:category/:supplier', storeController.listBySupplier);
+router.get('/:category', storeController.listByCat);
 
 module.exports = router;

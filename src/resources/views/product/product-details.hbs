@@ -1,0 +1,236 @@
+<!-- BREADCRUMB  START-->
+<div id='breadcrumb' class='section'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <ul class='breadcrumb-tree'>
+                    <li><a href='/'>Trang chủ</a></li>
+                    <li><a href='/'>{{productDetails.GroupProductName}}</a></li>
+                    <li><a href='/'>{{productDetails.ProductCategoryName}}</a></li>
+                    <li class='active'>{{productDetails.ProductName}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMB END-->
+
+<!-- SECTION START-->
+<div class='section'>
+    <div class='container-fluid'>
+        <div class='row'>
+            {{! Product main img }}
+            <div class='col-md-7'>
+                <div id='product-preview' class='carousel slide' data-bs-ride='carousel'>
+                    <div class='carousel-inner'>
+                        <div class='carousel-item active'>
+                            <img src='/{{productDetails.ImgProduct}}' class='d-block w-100' alt='...' />
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='/{{productDetails.ImgProduct}}' class='d-block w-100' alt='...' />
+                        </div>
+                        <div class='carousel-item'>
+                            <img src='/{{productDetails.ImgProduct}}' class='d-block w-100' alt='...' />
+                        </div>
+                    </div>
+                    <button class='carousel-control-prev' type='button' data-bs-target='#product-preview' data-bs-slide='prev'>
+                        <span class='prev-icon'><i class='fa-solid fa-chevron-left'></i></span>
+                        <span class='visually-hidden'>Previous</span>
+                    </button>
+                    <button class='carousel-control-next' type='button' data-bs-target='#product-preview' data-bs-slide='next'>
+                        <span class='next-icon'><i class='fa-solid fa-chevron-right'></i></span>
+                        <span class='visually-hidden'>Next</span>
+                    </button>
+                </div>
+            </div>
+            {{! Product details }}
+            <div class='col-md-5'>
+                <div class='product-details'>
+                    <h2 class='product-name'>{{productDetails.ProductName}}</h2>
+                    <div>
+                        <div class='product-rating'>
+                            <i class='fa fa-star'></i>
+                            <i class='fa fa-star'></i>
+                            <i class='fa fa-star'></i>
+                            <i class='fa fa-star'></i>
+                            <i class='fa fa-star'></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class='product-price'>{{productDetails.Price}}
+                            <i class='fa-solid fa-dong-sign'></i><del class='product-old-price'>{{productDetails.UnitPrice}}<i class='fa-solid fa-dong-sign'></i></del></h3>
+                    </div>
+                    <h2 class='product-details'>Điểm nổi bật</h2>
+                    <p>{{productDetails.Description}}</p>
+                    <div class='add-to-cart'>
+                        <div class='qty-label'>
+                            Số Lượng
+                            <div class='input-number'>
+                                <input type='number' value='0' min='0' />
+                                <span class='qty-up'>+</span>
+                                <span class='qty-down'>-</span>
+                            </div>
+                        </div>
+                        <button class='add-to-cart-btn'><i class='fa fa-shopping-cart'></i> Thêm vào giỏ hàng</button>
+                    </div>
+                    <ul class='product-links'>
+                        <li>Loại sản phẩm:</li>
+                        <li><a href='#'>{{productDetails.ProductCategoryName}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SECTION START-->
+
+<!-- REVIEW START-->
+<div id='product-reviews'>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <div class='product-reviews'>
+                    <h2 class='title'>BÌNH LUẬN</h2>
+                    <div class='row'>
+                        <!-- Rating -->
+                        <div class='col-md-3'>
+                            <div id='rating'>
+                                <div class='rating-avg'>
+                                    <span>4.5</span>
+                                    <div class='rating-stars'>
+                                        <i class='fa-solid fa-star'></i>
+                                        <i class='fa-solid fa-star'></i>
+                                        <i class='fa-solid fa-star'></i>
+                                        <i class='fa-solid fa-star'></i>
+                                        <i class='fa-regular fa-star'></i>
+                                    </div>
+                                </div>
+                                <ul class='rating'>
+                                    <li>
+                                        <div class='rating-stars'>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                        </div>
+                                        <div class='rating-progress'>
+                                            <div style='width: 80%;'></div>
+                                        </div>
+                                        <span class='sum'>3</span>
+                                    </li>
+                                    <li>
+                                        <div class='rating-stars'>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                        </div>
+                                        <div class='rating-progress'>
+                                            <div style='width: 60%;'></div>
+                                        </div>
+                                        <span class='sum'>2</span>
+                                    </li>
+                                    <li>
+                                        <div class='rating-stars'>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                        </div>
+                                        <div class='rating-progress'>
+                                            <div></div>
+                                        </div>
+                                        <span class='sum'>0</span>
+                                    </li>
+                                    <li>
+                                        <div class='rating-stars'>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                        </div>
+                                        <div class='rating-progress'>
+                                            <div></div>
+                                        </div>
+                                        <span class='sum'>0</span>
+                                    </li>
+                                    <li>
+                                        <div class='rating-stars'>
+                                            <i class='fa-solid fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                            <i class='fa-regular fa-star'></i>
+                                        </div>
+                                        <div class='rating-progress'>
+                                            <div></div>
+                                        </div>
+                                        <span class='sum'>0</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /Rating -->
+                        <!-- Reviews -->
+                        <div class='col-md-6'>
+                            <div id='reviews'>
+                                <ul class='reviews'>
+                                    {{#if listComments}}
+                                        {{#each listComments}}
+                                            <li>
+                                                <div class='review-heading'>
+                                                    <h5 class='name'>{{this.username}}</h5>
+                                                    <p class='date'>{{this.date}}</p>
+                                                    <div class='review-rating'>
+                                                        <i class='fa fa-star'></i>
+                                                        <i class='fa fa-star'></i>
+                                                        <i class='fa fa-star'></i>
+                                                        <i class='fa fa-star'></i>
+                                                        <i class='fa fa-star-o empty'></i>
+                                                    </div>
+                                                </div>
+                                                <div class='review-body'>
+                                                    <p>{{this.comment}}</p>
+                                                </div>
+                                            </li>
+                                        {{/each}}
+                                    {{/if}}
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /Reviews -->
+                        <!-- Review Form -->
+                        <div class='col-md-3'>
+                            <div id='review-form'>
+                                <form class='review-form' action='/store/comment/create-comment' method='POST'>
+                                    <input class='input' type='text' name='username' placeholder='Họ tên' />
+                                    <input class='input' type='email' name='email' placeholder='Email của bạn' />
+                                    <textarea class='input' name='comment' placeholder='Chia sẻ cảm nhận về sản phẩm'></textarea>
+                                    <div class='input-rating'>
+                                        <span>Đánh giá sản phẩm: </span>
+                                        <div class='stars'>
+                                            <input id='star5' name='rating' value='5' type='radio' /><label for='star5'></label>
+                                            <input id='star4' name='rating' value='4' type='radio' /><label for='star4'></label>
+                                            <input id='star3' name='rating' value='3' type='radio' /><label for='star3'></label>
+                                            <input id='star2' name='rating' value='2' type='radio' /><label for='star2'></label>
+                                            <input id='star1' name='rating' value='1' type='radio' /><label for='star1'></label>
+                                        </div>
+                                    </div>
+                                    <input type='hidden' name='productID' value='{{productDetails.ProductID}}' />
+                                    <input type='hidden' name='productName' value='{{productDetails.ProductName}}' />
+                                    <button class='primary-btn'>Gửi đánh giá</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /Review Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- REVIEW START-->
