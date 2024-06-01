@@ -383,29 +383,103 @@ textarea.input {
     width: 100%;
 }
 
+/*=========================================================
+	0x -> HOME PAGE
+===========================================================*/
 /*----------------------------*\
-	Register & Login CSS
+	Main Slider
 \*----------------------------*/
-.login {
+#main .navbar > ul {
+    width: 100%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#main .navbar .navbar-nav .nav-item > img {
+    float: left;
+    margin-left: 5px;
+    text-align: center;
+    width: 25px;
+    max-height: 30px;
+}
+
+#main .navbar .navbar-nav .nav-item > a {
+    margin-left: 5px;
+}
+
+#main .navbar .navbar-nav > li {
+    display: inline-block;
+    width: 100%;
+    margin-right: 15px;
+    padding: 5px 0px;
+    font-size: 16px;
+    border: 0.5px solid #ccc;
+}
+
+#main .navbar .navbar-nav > li {
+    border-bottom: none;
+}
+
+#main .navbar .navbar-nav > li:last-child {
+    border-bottom: 0.5px solid #ccc;
+}
+
+#main .navbar .navbar-nav > li > a {
+    color: #000000;
+}
+
+#main .navbar .navbar-nav > li > a:hover {
+    color: #d10024;
+    font-weight: bold;
+}
+
+#main .navbar .navbar-nav > li > i {
+    padding-right: 10px;
+    margin-left: auto;
+}
+
+#main-banner {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#main-banner img {
+    max-width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+}
+
+#main-banner .prev-icon,
+#main-banner .next-icon {
+    font-size: 30px;
+    color: #d10024;
+}
+
+#main .header .box-banner {
     position: relative;
-    padding-top: 30px;
-    border-radius: 10px;
-}
-
-.login .login-form,
-.login .register-form {
-    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+    max-height: 360px;
+    overflow: hidden;
     background: #ffffff;
-    margin-bottom: 30px;
+    gap: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.login-form,
-.register-form {
-    padding: 2% 10%;
-    border-radius: 10px;
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+#main .header .img-item {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
 }
 
+#main .header .img-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 /*=========================================================
 	04 -> FOOTER
 ===========================================================*/
@@ -451,6 +525,32 @@ textarea.input {
 /*=========================================================
 	05 -> MY ACCOUNT
 ===========================================================*/
+/*----------------------------*\
+	Register & Login CSS
+\*----------------------------*/
+.login {
+    position: relative;
+    padding-top: 30px;
+    border-radius: 10px;
+}
+
+.login .login-form,
+.login .register-form {
+    padding: 30px;
+    background: #ffffff;
+    margin-bottom: 30px;
+}
+
+.login-form,
+.register-form {
+    padding: 2% 10%;
+    border-radius: 10px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/*----------------------------*\
+	My Account
+\*----------------------------*/
 .my-account {
     position: relative;
     padding: 30px 0;
