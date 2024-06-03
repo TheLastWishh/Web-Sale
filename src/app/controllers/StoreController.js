@@ -15,6 +15,22 @@ class storeController {
         res.render('product/products-by-type', {classify: classify, listCat: listCat, listSupplier: listSupplier, listProduct: listProduct});
     }
 
+    async listByCost(req, res, next) {
+        let category = req.params.category;
+        let rangeMin = req.body.rangeMin;
+        let rangeMax = req.body.rangeMax;
+
+        let classify = await modelStore.group(category);
+        let listCat = await modelStore.listCat();
+        let listSupplier = await modelStore.listSupplier();
+        listSupplier.forEach((item) => {
+            item.category = category;
+        });
+        let listProduct = await modelStore.listByCost(category, rangeMin, rangeMax);
+
+        res.render('product/products-by-type', {classify: classify, listCat: listCat, listSupplier: listSupplier, listProduct: listProduct});
+    }
+
     // [GET] /store/:category/:supplier
     async listBySupplier(req, res, next) {
         let {category, supplier} = req.params;
@@ -36,7 +52,6 @@ class storeController {
         listComments.forEach((item) => {
             item.date = item.date.toLocaleString();
         });
-        console.log(listComments);
         res.render('product/product-details', {productDetails: productDetails, listComments: listComments});
     }
 

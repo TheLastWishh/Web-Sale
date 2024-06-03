@@ -522,7 +522,7 @@ textarea.input {
 .aside + .aside {
   margin-top: 30px; }
 
-.aside > .aside-title {
+.aside .aside-title {
   text-transform: uppercase;
   font-size: 18px;
   margin: 15px 0px 30px; }
@@ -532,12 +532,99 @@ textarea.input {
   margin-top: 10px; }
 
 /*-- Price Filter --*/
-#price-slider {
-  margin-bottom: 15px; }
+.price-input {
+  width: 100%;
+  display: flex;
+  margin: 10px 0 20px; }
 
-.price-filter .input-number {
-  display: inline-block;
-  width: calc(50% - 7px); }
+.price-input .field {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #999; }
+
+.field input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 14px;
+  margin-left: 12px;
+  text-align: center;
+  border: none;
+  -moz-appearance: textfield; }
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none; }
+
+.price-input i {
+  margin-right: 5px; }
+
+.price-input .separator {
+  width: 60px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center; }
+
+.slider {
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px; }
+
+.slider .progress {
+  height: 100%;
+  left: 0%;
+  right: 0%;
+  position: absolute;
+  border-radius: 5px;
+  background: #d10024; }
+
+.range-input {
+  position: relative; }
+
+.range-input input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+input[type='range']::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #d10024;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05); }
+
+input[type='range']::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #d10024;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05); }
+
+.aside button {
+  width: 100%;
+  height: 40px;
+  margin-top: 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  background: #d10024; }
 
 /*----------------------------*\
 	Product

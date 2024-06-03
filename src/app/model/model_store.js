@@ -162,6 +162,40 @@ exports.listBySupplier = async (cat, sup) => {
     }
 };
 
+exports.listByCost = async (category, rangeMin, rangeMax) => {
+    try {
+        let sql1 = `SELECT * FROM productcategories WHERE ProductCategoryName = ?`;
+        const categoryID = await new Promise((resolve, reject) => {
+            db.query(sql1, [category], (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                if (result.length === 0) {
+                    return reject(new Error('Không tìm thấy danh mục'));
+                }
+                resolve(result[0].ProductCategoryID);
+            });
+        });
+
+        console.log(categoryID);
+        let sql2 = `SELECT * FROM product WHERE price BETWEEN ? AND ?
+                    AND productCategoryID = ? `;
+        const product = await new Promise((resolve, reject) => {
+            db.query(sql2, [rangeMin, rangeMax, categoryID], (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result);
+            });
+        });
+
+        return product;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+};
+
 exports.getProductDetails = async (productName) => {
     try {
         let sql1 = `SELECT * FROM product WHERE ProductName =?`;
@@ -227,7 +261,6 @@ exports.getComments = async (productName) => {
                 resolve(result[0].ProductID);
             });
         });
-        console.log(productID);
 
         let sql2 = `SELECT * FROM comment WHERE ProductID =?`;
         const comments = await new Promise((resolve, reject) => {
