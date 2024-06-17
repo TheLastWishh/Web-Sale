@@ -1,0 +1,90 @@
+<!-- BREADCRUMB  START-->
+<div id='breadcrumb' class='section'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <ul class='breadcrumb-tree'>
+                    <li><a href='/'>Trang chủ</a></li>
+                    <li class='active'>Chi tiết đơn mua</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMB END-->
+
+<!-- CART START-->
+<div class='cart-page'>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-lg-8'>
+                <div class='cart-page-inner'>
+                    <div class='table-responsive'>
+                        <table class='table table-bordered'>
+                            <thead class='thead-dark'>
+                                <tr>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng</th>
+                                </tr>
+                            </thead>
+                            <tbody class='align-middle'>
+                                {{#if purchaseOrderDetails}}
+                                    {{#each purchaseOrderDetails}}
+                                        <tr>
+                                            <td>
+                                                <div class='img'>
+                                                    <a href='/store/{{this.ProductName}}/details'>
+                                                        <img src='/{{this.ImgProduct}}' alt='Image' />
+                                                        <p>
+                                                            {{this.ProductName}}
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td class='price'>
+                                                {{this.Price}}
+                                                <i class='fa-solid fa-dong-sign'></i>
+                                            </td>
+                                            <td class='quantity'>
+                                                {{this.OrderedQuantity}}
+                                            </td>
+                                            <td class='total-price'>
+                                                {{this.TotalPrice}}
+                                                <i class='fa-solid fa-dong-sign'></i>
+                                            </td>
+                                        </tr>
+                                    {{/each}}
+                                {{/if}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class='col-lg-4'>
+                <div class='cart-page-inner'>
+                    <div class='row'>
+                        <div class='col-md-12'>
+                            <div class='cart-summary'>
+                                <div class='cart-content'>
+                                    <h1>Thống kê đơn hàng</h1>
+                                    <p>Mã đơn hàng<span class='purchase-order-id'>{{purchaseOrderInfo.PurchaseOrderID}}</span></p>
+                                    <p>Tổng tiền sản phẩm<span>{{purchaseOrderInfo.Total}}<i class='fa-solid fa-dong-sign'></i></span></p>
+                                    <p>Phí ship<span class='shippingfee'>0<i class='fa-solid fa-dong-sign'></i></span></p>
+                                    <h3>Tổng cộng<span>{{purchaseOrderInfo.Total}}<i class='fa-solid fa-dong-sign'></i></span></h3>
+                                </div>
+                                {{! <form>
+                                    <div class='cart-btn'>
+                                        <button class='btn btn-outline-danger'>Thanh Toán</button>
+                                    </div>
+                                </form> }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CART END-->

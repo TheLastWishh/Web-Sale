@@ -1,0 +1,90 @@
+<!-- BREADCRUMB  START-->
+<div id='breadcrumb' class='section'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <ul class='breadcrumb-tree'>
+                    <li><a href='/'>Trang chủ</a></li>
+                    <li class='active'>Thanh toán</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMB END-->
+
+<!-- SECTION START-->
+<div class='section'>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-md-7'>
+                <div class='billing-details'>
+                    <div class='section-title'>
+                        <h3 class='title'>Thông tin đặt hàng</h3>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-6'>
+                            <input id='firstname' name='firstname' class='form-control' type='text' placeholder='{{user.firstname}}' />
+                        </div>
+                        <div class='col-md-6'>
+                            <input id='lastname' name='lastname' class='form-control' type='text' placeholder='{{user.lastname}}' />
+                        </div>
+                        <div class='col-md-6'>
+                            <input id='email' name='email' class='form-control' type='email' placeholder='{{user.email}}' />
+                        </div>
+                        <div class='col-md-6'>
+                            <input id='phone' name='phone' class='form-control' type='text' placeholder='{{user.phone}}' />
+                        </div>
+                        <div class='col-md-12'>
+                            <input id='address' name='address' class='form-control' type='text' placeholder='{{user.address}}' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5 order-details'>
+                <form action='/cart/order' method='POST'>
+                    <div class='section-title text-center'>
+                        <h3 class='title'>Hóa đơn của bạn</h3>
+                    </div>
+                    <div class='order-summary'>
+                        <div class='order-col'>
+                            <div><strong>SẢN PHẨM</strong></div>
+                            <div><strong>THÀNH TIỀN</strong></div>
+                        </div>
+                        <div class='order-products'>
+                            {{#if orderedItems}}
+                                {{#each orderedItems}}
+                                    <div class='order-col'>
+                                        <div>{{this.QuantityProduct}}x {{this.ProductName}}</div>
+                                        <div>{{this.TotalPrice}}<i class='fa-solid fa-dong-sign'></i></div>
+                                    </div>
+                                    <input type='hidden' name='productID' id='{{this.ProductID}}' value='{{this.ProductID}}' />
+                                {{/each}}
+                            {{/if}}
+                        </div>
+                        <div class='order-col'>
+                            <div>Phí vận chuyển</div>
+                            <div><strong>Miễn phí</strong></div>
+                        </div>
+                        <div class='order-col'>
+                            <div><strong>TỔNG CỘNG</strong></div>
+                            <div><strong class='order-total'>{{totalAmount}}<i class='fa-solid fa-dong-sign'></i></strong></div>
+                        </div>
+                    </div>
+                    <div class='payment-method'>
+                        <div><strong>Phương thức thanh toán</strong></div>
+                        <div class='input-radio'>
+                            <input type='radio' name='payment' id='payment-1' value='Khi Nhận Hàng' required />
+                            <label for='payment-1'>
+                                <span></span>
+                                Thanh toán khi nhận hàng
+                            </label>
+                        </div>
+                    </div>
+                    <button class='primary-btn order-submit'>Đặt hàng</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SECTION END-->

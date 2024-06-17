@@ -177,7 +177,6 @@ exports.listByCost = async (category, rangeMin, rangeMax) => {
             });
         });
 
-        console.log(categoryID);
         let sql2 = `SELECT * FROM product WHERE price BETWEEN ? AND ?
                     AND productCategoryID = ? `;
         const product = await new Promise((resolve, reject) => {

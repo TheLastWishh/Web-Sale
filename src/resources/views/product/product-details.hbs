@@ -63,15 +63,17 @@
                     <h2 class='product-details'>Điểm nổi bật</h2>
                     <p>{{productDetails.Description}}</p>
                     <div class='add-to-cart'>
-                        <div class='qty-label'>
-                            Số Lượng
-                            <div class='input-number'>
-                                <input type='number' value='0' min='0' />
-                                <span class='qty-up'>+</span>
-                                <span class='qty-down'>-</span>
+                        <form action='/cart/{{productDetails.ProductName}}/add-more' method='POST'>
+                            <div class='qty-label'>
+                                Số Lượng
+                                <div class='input-number'>
+                                    <input type='number' name='quantity' value='0' min='0' />
+                                    <span class='qty-up'>+</span>
+                                    <span class='qty-down'>-</span>
+                                </div>
                             </div>
-                        </div>
-                        <button class='add-to-cart-btn'><i class='fa fa-shopping-cart'></i> Thêm vào giỏ hàng</button>
+                            <button class='add-to-cart-btn'><i class='fa fa-shopping-cart'></i> Thêm vào giỏ hàng</button>
+                        </form>
                     </div>
                     <ul class='product-links'>
                         <li>Loại sản phẩm:</li>

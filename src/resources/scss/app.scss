@@ -548,6 +548,13 @@ textarea.input {
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
 }
 
+.login-form .noti {
+    color: #d10024;
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 2px;
+}
+
 /*----------------------------*\
 	My Account
 \*----------------------------*/
@@ -618,8 +625,26 @@ textarea.input {
 }
 
 /*-- checkbox Filter --*/
+.checkbox-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-filter-container .checkbox-filter {
+    width: 50%;
+}
+
 .checkbox-filter > div + div {
     margin-top: 10px;
+}
+
+.input-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-filter .input-checkbox input {
+    margin-right: 4px;
 }
 
 /*-- Price Filter --*/
@@ -1211,4 +1236,200 @@ input[type='range']::-moz-range-thumb {
 .review-form .input-rating .stars > input:checked ~ label:before {
     content: '\f005';
     color: #d10024;
+}
+
+/*=========================================================
+	0x -> CART PAGE
+===========================================================*/
+.cart-page {
+    position: relative;
+    margin-top: 30px;
+}
+
+.cart-page .cart-page-inner {
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #e4e7ed;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cart-page .table {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.cart-page .table .thead-dark th {
+    font-size: 18px;
+    font-weight: 700;
+    color: #353535;
+    text-align: center;
+    background: transparent;
+    border-color: #dddddd;
+    border-bottom: none;
+    vertical-align: middle;
+}
+
+.cart-page .table td {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.cart-page .table .img {
+    display: flex;
+    align-items: center;
+}
+
+.cart-page .table a {
+    display: flex;
+    align-items: center;
+}
+
+.cart-page .table .img img {
+    max-width: 80px;
+    max-height: 80px;
+    margin-right: 15px;
+}
+.cart-page .table .img p {
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+    max-width: 240px;
+}
+
+.cart-page .table .price,
+.cart-page .table .total-price {
+    white-space: nowrap; // Hiển thị dữ liệu trên 1 dòng
+}
+
+.cart-page .table .input-number {
+    width: 80px;
+}
+
+.cart-page .table button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    color: #ffffff;
+    background: #d10024;
+    border: none;
+    border-radius: 4px;
+}
+
+.cart-page .table .select {
+    width: 20px;
+    height: 20px;
+}
+
+.cart-page .cart-summary {
+    position: relative;
+    width: 100%;
+}
+
+.cart-page .cart-summary .cart-content {
+    padding: 30px;
+    background: #f3f6ff;
+}
+
+.cart-page .cart-summary .cart-content h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.cart-page .cart-summary .cart-content p span,
+.cart-page .cart-summary .cart-content h2 span,
+.cart-page .cart-summary .cart-content h3 span {
+    float: right;
+}
+
+.cart-page .cart-summary .cart-content h2,
+.cart-page .cart-summary .cart-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 12px;
+    border-top: 1px solid #dddddd;
+    margin: 0;
+}
+
+.cart-page .cart-summary .cart-btn button {
+    margin-top: 15px;
+}
+
+/*=========================================================
+	0x -> CHECKOUT PAGE
+===========================================================*/
+.billing-details {
+    margin-bottom: 30px;
+}
+
+.billing-details input {
+    margin-top: 10px;
+}
+
+.order-details {
+    position: relative;
+    padding: 0px 30px 30px;
+    border-right: 1px solid #e4e7ed;
+    border-left: 1px solid #e4e7ed;
+    border-bottom: 1px solid #e4e7ed;
+}
+
+.order-details:before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: -15px;
+    height: 30px;
+    border-top: 1px solid #e4e7ed;
+    border-left: 1px solid #e4e7ed;
+    border-right: 1px solid #e4e7ed;
+}
+
+.order-summary {
+    margin: 15px 0px;
+}
+
+.order-summary .order-col {
+    display: table;
+    width: 100%;
+}
+
+.order-summary .order-col:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.order-summary .order-col > div {
+    display: table-cell;
+    padding: 10px 0px;
+}
+
+.order-summary .order-col > div:first-child {
+    width: calc(100% - 150px);
+}
+
+.order-summary .order-col > div:last-child {
+    width: 150px;
+    text-align: right;
+}
+
+.order-summary .order-col .order-total {
+    font-size: 24px;
+    color: #d10024;
+}
+
+.order-details .payment-method {
+    margin: 30px 0px;
+}
+
+.order-details .payment-method .input-radio {
+    display: flex;
+    align-items: center;
+}
+
+.order-details .order-submit {
+    width: 100%;
 }

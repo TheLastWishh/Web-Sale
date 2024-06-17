@@ -4,9 +4,16 @@ const db = require('../model/database');
 
 class UserController {
     // [GET] /user/my-account
-    getMyAccount(req, res, next) {
+    async getMyAccount(req, res, next) {
         if (req.session.User) {
-            res.render('users/my-account', {user: req.session.User});
+            let listOrders = await modelUser.getAllPurchaseOrders();
+            listOrders.forEach((item) => {
+                item.OrderDate = item.OrderDate.toLocaleString();
+            });
+            res.render('users/my-account', {user: req.session.User, listOrders: listOrders});
+            // res.json({
+            //     listOrders: listOrders,
+            // });
         } else {
             req.session.back = '/user/my-account';
             res.redirect('/user/sign-in');
@@ -27,8 +34,8 @@ class UserController {
             let sql = `SELECT * FROM user WHERE username = '${username}' OR email = '${username}'`;
             db.query(sql, (err, rows) => {
                 if (rows.length <= 0) {
-                    res.redirect('/user/sign-in');
-                    console.log('Tài khoản không tồn tại');
+                    let message = 'Tài khoản không tồn tại';
+                    res.render('users/signin', {message: message});
                     return;
                 }
 
@@ -40,6 +47,8 @@ class UserController {
                     req.session.User = {
                         id: user.UserID,
                         username: user.UserName,
+                        firstname: user.FirstName,
+                        lastname: user.LastName,
                         phone: user.PhoneNumber,
                         email: user.Email,
                         address: user.Address,
@@ -47,15 +56,18 @@ class UserController {
                     };
 
                     if (req.session.back) {
-                        console.log(req.session.back);
                         res.redirect(req.session.back);
                     } else {
                         res.redirect('/');
                     }
                 } else {
-                    res.redirect('/user/sign-in');
+                    let message = 'Tài khoản hoặc mật khẩu không chính xác';
+                    res.render('users/signin', {message: message});
                 }
             });
+        } else {
+            let message = 'Vui lòng nhập đầy đủ thông tin';
+            res.render('users/signin', {message: message});
         }
     }
 
@@ -66,8 +78,7 @@ class UserController {
 
     // [POST] /user/store
     async store(req, res, next) {
-        const {username, email, phone, password, retypePassword, address} =
-            req.body;
+        const {username, firstName, lastName, email, phone, password, retypePassword, address} = req.body;
         let checkUsername = await modelUser.checkUsername(username);
 
         if (!checkUsername) {
@@ -75,10 +86,13 @@ class UserController {
                 var salt = bcrypt.genSaltSync(10); // Tạo chuỗi salt thêm vào mật khẩu
                 var pass = bcrypt.hashSync(password, salt); // Mã hóa mật khẩu
                 let userid = await modelUser.generateID();
+                let shoppingCartID = userid;
 
                 let user_info = {
                     userid: userid,
                     username: username,
+                    firstName: firstName,
+                    lastName: lastName,
                     email: email,
                     phoneNumber: phone,
                     password: pass,
@@ -86,8 +100,11 @@ class UserController {
                     role: 0,
                 };
 
-                let sql = 'INSERT INTO user SET ?';
-                db.query(sql, user_info);
+                let sql1 = 'INSERT INTO user SET ?';
+                db.query(sql1, user_info);
+                let sql2 = `INSERT INTO shoppingcart (ShoppingCartID, UserID) VALUES (?, ?)`;
+                db.query(sql2, [shoppingCartID, userid]);
+
                 res.redirect('/user/sign-up-successfully');
             } else {
                 res.redirect('/user/sign-up');
@@ -194,14 +211,20 @@ class UserController {
 
     // [POST] /user/update
     update(req, res, next) {
-        let username = req.body.username;
+        let firstName = req.body.firstname;
+        let lastName = req.body.lastname;
         let email = req.body.email;
         let phone = req.body.phone;
         let address = req.body.address;
         let userID = req.session.User.id;
-        if (username || email || phone || address) {
-            if (username) {
-                let sql = `UPDATE user SET UserName = '${username}' WHERE UserID = '${userID}'`;
+        if (firstName || lastName || email || phone || address) {
+            if (firstName) {
+                let sql = `UPDATE user SET FirstName = '${firstName}' WHERE UserID = '${userID}'`;
+                db.query(sql);
+            }
+
+            if (lastName) {
+                let sql = `UPDATE user SET LastName = '${lastName}' WHERE UserID = '${userID}'`;
                 db.query(sql);
             }
 

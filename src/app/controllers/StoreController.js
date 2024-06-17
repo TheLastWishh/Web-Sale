@@ -1,7 +1,7 @@
 const modelStore = require('../model/model_store');
 const db = require('../model/database');
 
-class storeController {
+class StoreController {
     // [GET] /store/:/category
     async listByCat(req, res, next) {
         let name = req.params.category;
@@ -77,7 +77,7 @@ class storeController {
             let sql = `INSERT INTO comment set ?`;
             db.query(sql, data);
         } catch (err) {
-            console.log(err);
+            console.error(err);
             throw err;
         }
 
@@ -86,4 +86,4 @@ class storeController {
     }
 }
 
-module.exports = new storeController();
+module.exports = new StoreController();

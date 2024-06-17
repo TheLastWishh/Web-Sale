@@ -24,23 +24,18 @@
                             <legend class='text-center'> Đăng Nhập</legend>
                             <div class='col-md-6 mt-4'>
                                 <label for='username'>Tên Đăng Nhập</label>
-                                <input
-                                    id='username'
-                                    name='username'
-                                    class='form-control'
-                                    type='text'
-                                />
+                                <input id='username' name='username' class='form-control' type='text' />
                             </div>
                             <div class='col-md-6 mt-4'>
                                 <label for='password'>Mật Khẩu</label>
-                                <input
-                                    id='password'
-                                    name='password'
-                                    class='form-control'
-                                    type='password'
-                                />
+                                <input id='password' name='password' class='form-control' type='password' />
                             </div>
-                            <div class='col-md-12 mt-4'>
+                            <div class='col-md-12'>
+                                <legend class='noti'>
+                                    {{message}}
+                                </legend>
+                            </div>
+                            <div class='col-md-12'>
                                 <a href='/user/forget-password'>Quên Mật Khẩu ?</a>
                                 <a href='/user/sign-up'>Tạo tài khoản</a>
                             </div>
