@@ -40,6 +40,13 @@ class UserController {
                 }
 
                 let user = rows[0];
+
+                if (user.LockUser === `Lock`) {
+                    let message = 'Tài khoản của bạn đã bị khóa';
+                    res.render('users/signin', {message: message});
+                    return;
+                }
+
                 let pass_fromdb = user.Password;
                 var result = bcrypt.compareSync(password, pass_fromdb);
 
@@ -78,7 +85,7 @@ class UserController {
 
     // [POST] /user/store
     async store(req, res, next) {
-        const {username, firstName, lastName, email, phone, password, retypePassword, address} = req.body;
+        const {username, firstname, lastname, email, phone, password, retypePassword, address} = req.body;
         let checkUsername = await modelUser.checkUsername(username);
 
         if (!checkUsername) {
@@ -87,16 +94,18 @@ class UserController {
                 var pass = bcrypt.hashSync(password, salt); // Mã hóa mật khẩu
                 let userid = await modelUser.generateID();
                 let shoppingCartID = userid;
+                let lockUser = 'Unlock';
 
                 let user_info = {
                     userid: userid,
                     username: username,
-                    firstName: firstName,
-                    lastName: lastName,
+                    firstName: firstname,
+                    lastName: lastname,
                     email: email,
                     phoneNumber: phone,
                     password: pass,
                     address: address,
+                    lockUser: lockUser,
                     role: 0,
                 };
 

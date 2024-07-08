@@ -66,7 +66,7 @@ async function generateID() {
 
 getAllPurchaseOrders = async () => {
     try {
-        let sql = `SELECT * FROM purchaseorder`;
+        let sql = `SELECT * FROM purchaseorder ORDER BY OrderDate ASC`;
         const listOrders = await new Promise((resolve, reject) => {
             db.query(sql, (err, result) => {
                 if (err) {

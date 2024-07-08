@@ -480,6 +480,82 @@ textarea.input {
     height: 100%;
     object-fit: contain;
 }
+
+/*----------------------------*\
+	Feature
+\*----------------------------*/
+.feature {
+    position: relative;
+}
+
+.feature .feature-col {
+    margin: 30px 0px;
+}
+
+.feature .feature-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 30px 15px;
+    text-align: center;
+    background: #ffffff;
+    border: 0.5px solid #ccc;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.feature .feature-content i {
+    color: #d10024;
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+
+.feature .feature-content h2 {
+    font-size: 18px;
+}
+
+.feature .feature-content p {
+    font-size: 15px;
+    margin: 0;
+}
+
+/*----------------------------*\
+	Product Slider
+\*----------------------------*/
+.banner-list {
+    background-color: #6fcbdc;
+    border-radius: 10px;
+}
+
+.banner-list {
+    display: flex;
+}
+
+.banner-item img {
+    width: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+.swiper-button-next {
+    right: 10px;
+}
+.swiper-button-prev {
+    left: 10px;
+}
 /*=========================================================
 	04 -> FOOTER
 ===========================================================*/
@@ -750,7 +826,7 @@ input[type='range']::-moz-range-thumb {
 \*----------------------------*/
 .product {
     position: relative;
-    margin: 15px 0px;
+    margin: 15px 5px;
     -webkit-box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
     box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
     -webkit-transition: 0.2s all;
@@ -958,6 +1034,13 @@ input[type='range']::-moz-range-thumb {
     font-size: 16px;
 }
 
+.product-details pre {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+}
+
 .product-details .add-to-cart {
     margin-bottom: 30px;
 }
@@ -1145,15 +1228,23 @@ input[type='range']::-moz-range-thumb {
     margin: 0;
 }
 
-.reviews .review-heading .review-rating {
-    margin-top: 5px;
-}
+// .reviews .review-heading .review-rating {
+//     margin-top: 5px;
+// }
 
-.reviews .review-heading .review-rating > i {
+// .reviews .review-heading .review-rating > i {
+//     color: #e4e7ed;
+// }
+
+// .reviews .review-heading .review-rating > i.fa-star {
+//     color: #d10024;
+// }
+
+.reviews .review-heading .review-rating .star {
     color: #e4e7ed;
 }
 
-.reviews .review-heading .review-rating > i.fa-star {
+.reviews .review-heading .review-rating .star.active {
     color: #d10024;
 }
 

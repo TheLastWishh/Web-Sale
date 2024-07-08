@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class='col-md-3'>
-                    <div class="box-banner">
+                    <div class='box-banner'>
                         <div class='img-item'>
                             <img src='img/sales/may-loc-nuoc---uu-dai-tung-bung-mung-euro-cup-2024--50-xem-ngay_f1e67c1a.png' alt='Máy lọc nước ưu đãi euro cup' />
                         </div>
@@ -97,6 +97,103 @@
                             <img src='img/sales/samsung-vuot-ai-oled---vuot-chuan-xem-cup-sieu-dinh-xem-ngay_48ad6d1a.jpg' alt='Samsung AI OLED vượt chuẩn xem cup siêu đỉnh' />
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature Start-->
+    <div class='feature'>
+        <div class='container-fluid'>
+            <div class='row align-items-center'>
+                <div class='col-lg-3 col-md-6 feature-col'>
+                    <div class='feature-content'>
+                        <i class='fa-brands fa-cc-mastercard'></i>
+                        <h2>Bảo Mật Thanh Toán</h2>
+                        <p>
+                            Website cam kết bảo mật thông tin khách hàng
+                        </p>
+                    </div>
+                </div>
+                <div class='col-lg-3 col-md-6 feature-col'>
+                    <div class='feature-content'>
+                        <i class='fa-solid fa-truck'></i>
+                        <h2>Vận Chuyển Toàn Miền Bắc</h2>
+                        <p>
+                            Freeship toàn miền Bắc, có hỗ trợ SHIP CODE cho khách hàng
+                        </p>
+                    </div>
+                </div>
+                <div class='col-lg-3 col-md-6 feature-col'>
+                    <div class='feature-content'>
+                        <i class='fa-solid fa-rotate'></i>
+                        <h2>90 Ngày Đổi Trả</h2>
+                        <p>
+                            Cho phép khách hàng được đổi trả sản phẩm trong vòng 90 ngày
+                        </p>
+                    </div>
+                </div>
+                <div class='col-lg-3 col-md-6 feature-col'>
+                    <div class='feature-content'>
+                        <i class='fa-solid fa-comment'></i>
+                        <h2>Tư Vấn 24/7</h2>
+                        <p>
+                            Luôn có nhân viên tư vấn online 24/24. Hỗ trợ chăm sóc khách hàng
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End-->
+
+    <div class='section'>
+        <div class='container-fluid'>
+            <div class='row product-list'>
+                <div class='col-md-12 banner-list'>
+                    <div class='col-md-6 banner-item'>
+                        <img src='https://cdn.mediamart.vn/images/banner/sale-dieu-hoa_2e8ebe5b.png' alt='' />
+                    </div>
+                    <div class='col-md-3 banner-item'>
+                        <img src='https://cdn.mediamart.vn/images/banner/mua-vu-tc-09is35_c7006172.png' alt='' />
+                    </div>
+                    <div class='col-md-3 banner-item'>
+                        <img src='https://cdn.mediamart.vn/images/banner/sale-dieu-hoa-sp_d1df6b8c.png' alt='' />
+                    </div>
+                </div>
+                <div class='col-md-12'>
+                    <div class='products-slick' id='product-slider'>
+                        <!-- product -->
+                        {{#if airConditioner}}
+                            {{#each airConditioner}}
+                                <div class='product'>
+                                    <div class='product-img'>
+                                        <img src='{{this.ImgProduct}}' alt='{{this.ProductName}}' />
+                                    </div>
+                                    <div class='product-body'>
+                                        <h3 class='product-name'><a href='/store/{{this.ProductName}}/details'>{{this.ProductName}}</a></h3>
+                                        <h4 class='product-price'>
+                                            {{this.Price}}
+                                            <i class='fa-solid fa-dong-sign'></i>
+                                            <del class='product-old-price'>{{this.CostPrice}}<i class='fa-solid fa-dong-sign'></i></del>
+                                        </h4>
+                                        <div class='product-rating'>
+                                            <i class='fa fa-star'></i>
+                                            <i class='fa fa-star'></i>
+                                            <i class='fa fa-star'></i>
+                                            <i class='fa fa-star'></i>
+                                            <i class='fa fa-star'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product -->
+                            {{/each}}
+                        {{/if}}
+                    </div>
+
+                    <div class='swiper-button-next'><i class='fa-solid fa-chevron-right'></i></div>
+                    <div class='swiper-button-prev'><i class='fa-solid fa-chevron-left'></i></div>
+                    <div class='swiper-pagination'></div>
                 </div>
             </div>
         </div>

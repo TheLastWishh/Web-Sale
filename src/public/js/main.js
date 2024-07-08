@@ -175,4 +175,59 @@
             }
         });
     });
+
+    $(document).ready(function () {
+        $('.review-rating').each(function () {
+            var rating = $(this).data('rating');
+            updateCommentStars($(this), rating);
+        });
+
+        function updateCommentStars(commentStars, rating) {
+            commentStars.find('.star').each(function (index) {
+                if (index < rating) {
+                    $(this).addClass('active');
+                } else {
+                    $(this).removeClass('active');
+                }
+            });
+        }
+    });
+
+    $(document).ready(function () {
+        $('#product-slider').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            nextArrow: $('.swiper-button-next'),
+            prevArrow: $('.swiper-button-prev'),
+            dots: true,
+            appendDots: $('.swiper-pagination'),
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true,
+                    },
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+                },
+            ],
+        });
+    });
 })(jQuery);

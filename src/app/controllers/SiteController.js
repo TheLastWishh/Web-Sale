@@ -1,8 +1,11 @@
+const modelStore = require('../model/model_store');
 class SiteController {
     // [GET] /
-    homePage(req, res) {
-        res.render('home')
+    async homePage(req, res) {
+        let airConditioner = await modelStore.listByName('Điều hòa nhiệt độ');
+
+        res.render('home', {airConditioner: airConditioner});
     }
 }
 
-module.exports = new SiteController()
+module.exports = new SiteController();
