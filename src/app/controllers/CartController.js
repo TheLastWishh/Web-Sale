@@ -145,7 +145,16 @@ class CartController {
 
                 let sql = `INSERT INTO purchaseorderdetail (PurchaseOrderID, ProductID, OrderedQuantity, Price, TotalPrice) VALUES (?, ?, ?, ?, ?)`;
 
-                db.query(sql, data);
+                db.query(sql, data, (err, result) => {
+                    if (err) throw err;
+
+                    let updateData = [item.QuantityProduct, item.ProductID];
+                    let sqlUpdate = `UPDATE product SET Quantity = Quantity - ? WHERE ProductID = ?`;
+
+                    db.query(sqlUpdate, updateData, (updateErr, updateResult) => {
+                        if (updateErr) throw updateErr;
+                    });
+                });
             });
         } catch (err) {
             console.error(err);

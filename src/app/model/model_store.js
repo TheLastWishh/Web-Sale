@@ -98,7 +98,7 @@ exports.listByName = async (nameCat) => {
         });
 
         // Truy vấn thứ hai để lấy sản phẩm theo ProductCategoryID
-        let sql2 = `SELECT * FROM product WHERE ProductCategoryID = ?`;
+        let sql2 = `SELECT * FROM product WHERE ProductCategoryID = ? AND Quantity > 0`;
         const productResult = await new Promise((resolve, reject) => {
             db.query(sql2, [categoryResult], (err, result) => {
                 if (err) {
@@ -144,7 +144,7 @@ exports.listBySupplier = async (cat, sup) => {
             });
         });
 
-        let sql3 = `SELECT * FROM product WHERE ProductCategoryID = ? AND SupplierID = ?`;
+        let sql3 = `SELECT * FROM product WHERE ProductCategoryID = ? AND SupplierID = ? AND Quantity > 0`;
         const product = await new Promise((resolve, reject) => {
             db.query(sql3, [categoryID, supplierID], (err, result) => {
                 if (err) {
@@ -178,7 +178,7 @@ exports.listByCost = async (category, rangeMin, rangeMax) => {
         });
 
         let sql2 = `SELECT * FROM product WHERE price BETWEEN ? AND ?
-                    AND productCategoryID = ? `;
+                    AND productCategoryID = ? AND Quantity > 0`;
         const product = await new Promise((resolve, reject) => {
             db.query(sql2, [rangeMin, rangeMax, categoryID], (err, result) => {
                 if (err) {
