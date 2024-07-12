@@ -97,10 +97,11 @@ class CartController {
             req.session.back = `/cart`;
             res.redirect('/user/sign-in');
         } else {
+            let user = req.session.User;
             let cartInfo = await modelCart.getCartInfo(req.session.User.id);
             let cartItems = cartInfo.cartItems;
 
-            res.render('cart/shopping-cart', {cartItems: cartItems});
+            res.render('cart/shopping-cart', {cartItems: cartItems, user: user});
         }
     }
 
@@ -108,12 +109,13 @@ class CartController {
         if (!req.session.User) {
             res.redirect('/user/sign-in');
         } else {
+            let user = req.session.User;
             let cartInfo = await modelCart.getCartInfo(req.session.User.id);
             let cartItems = cartInfo.cartItems;
             let listOrderedProductID = req.body.productID;
             let orderedItems = cartItems.filter((item) => listOrderedProductID.includes(item.ProductID));
             let totalAmount = orderedItems.reduce((accumulator, item) => accumulator + item.TotalPrice, 0);
-            res.render('cart/checkout', {user: req.session.User, orderedItems: orderedItems, totalAmount: totalAmount});
+            res.render('cart/checkout', {user: req.session.User, orderedItems: orderedItems, totalAmount: totalAmount, user: user});
         }
     }
 
@@ -174,16 +176,17 @@ class CartController {
             console.error(err);
             throw err;
         }
-
+        let user = req.session.User;
         let mess = 'Đặt hàng thành công!';
-        res.render('cart/successful', {message: mess});
+        res.render('cart/successful', {message: mess, user: user});
     }
 
     async getPurchaseOrderDetails(req, res, next) {
+        let user = req.session.User;
         let purchasrOrderID = req.params.purchasrOrderID;
         let purchaseOrderInfo = await modelCart.getPurchaseOrderInfo(purchasrOrderID);
         let purchaseOrderDetails = purchaseOrderInfo.purchaseOrderDetails;
-        res.render('cart/purchase-order-details', {purchaseOrderInfo: purchaseOrderInfo, purchaseOrderDetails: purchaseOrderDetails});
+        res.render('cart/purchase-order-details', {purchaseOrderInfo: purchaseOrderInfo, purchaseOrderDetails: purchaseOrderDetails, user: user});
     }
 }
 

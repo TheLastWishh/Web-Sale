@@ -11,9 +11,6 @@ class UserController {
                 item.OrderDate = item.OrderDate.toLocaleString();
             });
             res.render('users/my-account', {user: req.session.User, listOrders: listOrders});
-            // res.json({
-            //     listOrders: listOrders,
-            // });
         } else {
             req.session.back = '/user/my-account';
             res.redirect('/user/sign-in');
@@ -210,8 +207,9 @@ class UserController {
                     let sql2 = `UPDATE user SET Password = '${newPass}' WHERE UserName = '${username}'`;
 
                     db.query(sql2, (err, result) => {
+                        let user = req.session.User;
                         let mess = 'Đổi mật khẩu thành công';
-                        res.render('users/successful', {message: mess});
+                        res.render('users/successful', {message: mess, user: user});
                     });
                 }
             }
@@ -253,8 +251,9 @@ class UserController {
             }
 
             req.session.destroy();
+            let user = req.session.User;
             let mess = 'Cập nhật thông tin người dùng thành công!';
-            res.render('users/successful', {message: mess});
+            res.render('users/successful', {message: mess, user: user});
         } else {
             return;
         }
@@ -263,7 +262,7 @@ class UserController {
     // [GET] /user/sign-out
     signOut(req, res, next) {
         req.session.destroy();
-        res.redirect('/user/sign-in');
+        res.redirect('/');
     }
 }
 

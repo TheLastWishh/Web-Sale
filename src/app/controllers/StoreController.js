@@ -4,6 +4,7 @@ const db = require('../model/database');
 class StoreController {
     // [GET] /store/:/category
     async listByCat(req, res, next) {
+        let user = req.session.User;
         let name = req.params.category;
         let classify = await modelStore.group(name);
         let listCat = await modelStore.listCat();
@@ -12,10 +13,11 @@ class StoreController {
             item.category = name;
         });
         let listProduct = await modelStore.listByName(name);
-        res.render('product/products-by-type', {classify: classify, listCat: listCat, listSupplier: listSupplier, listProduct: listProduct});
+        res.render('product/products-by-type', {classify: classify, listCat: listCat, listSupplier: listSupplier, listProduct: listProduct, user: user});
     }
 
     async listByCost(req, res, next) {
+        let user = req.session.User;
         let category = req.params.category;
         let rangeMin = req.body.rangeMin;
         let rangeMax = req.body.rangeMax;
@@ -28,11 +30,12 @@ class StoreController {
         });
         let listProduct = await modelStore.listByCost(category, rangeMin, rangeMax);
 
-        res.render('product/products-by-type', {classify: classify, listCat: listCat, listSupplier: listSupplier, listProduct: listProduct});
+        res.render('product/products-by-type', {classify: classify, listCat: listCat, listSupplier: listSupplier, listProduct: listProduct, user: user});
     }
 
     // [GET] /store/:category/:supplier
     async listBySupplier(req, res, next) {
+        let user = req.session.User;
         let {category, supplier} = req.params;
         let classify = await modelStore.group(category);
         let listCat = await modelStore.listCat();
@@ -41,18 +44,19 @@ class StoreController {
             item.category = category;
         });
         let listProduct = await modelStore.listBySupplier(category, supplier);
-        res.render('product/products-by-type', {classify: classify, listCat: listCat, listSupplier: listSupplier, listProduct: listProduct});
+        res.render('product/products-by-type', {classify: classify, listCat: listCat, listSupplier: listSupplier, listProduct: listProduct, user: user});
     }
 
     // [GET] /store/:ProductName/details
     async productDetails(req, res, next) {
+        let user = req.session.User;
         let productName = req.params.ProductName;
         let productDetails = await modelStore.getProductDetails(productName);
         let listComments = await modelStore.getComments(productName);
         listComments.forEach((item) => {
             item.date = item.date.toLocaleString();
         });
-        res.render('product/product-details', {productDetails: productDetails, listComments: listComments});
+        res.render('product/product-details', {productDetails: productDetails, listComments: listComments, user: user});
     }
 
     // [POST] /store/comment/create-comment

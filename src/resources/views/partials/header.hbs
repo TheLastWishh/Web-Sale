@@ -51,30 +51,35 @@
                     </div>
 
                     {{! Cart }}
-                    <div class='btn-group'>
-                        <button type='button' class='btn btn-dark dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-                            <i class='fa-solid fa-cart-shopping'></i>
-                            Giỏ hàng
-                        </button>
-                        <ul class='dropdown-menu'>
-                            <li><a class='dropdown-item' href='/cart'>Giỏ hàng</a></li>
-                            <li><a class='dropdown-item' href='/cart/checkout'>Thanh toán</a></li>
-                            <li><a class='dropdown-item' href='#'>Something else here</a></li>
-                            <li><hr class='dropdown-divider' /></li>
-                            <li><a class='dropdown-item' href='#'>Separated link</a></li>
-                        </ul>
+                    <div>
+                        <a href='/cart'>
+                            <button class='btn btn-dark' style='color: aliceblue;'>
+                                <i class='fa-solid fa-cart-shopping'></i>
+                                Giỏ hàng
+                            </button>
+                        </a>
                     </div>
 
                     {{! Account }}
                     <div class='btn-group'>
                         <button type='button' class='btn btn-dark dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
                             <i class='fa-regular fa-circle-user'></i>
-                            Tài Khoản
+                            {{! Tài Khoản }}
+                            {{#if user}}
+                                Xin chào,
+                                {{user.lastname}}
+                            {{else}}
+                                Tài Khoản
+                            {{/if}}
                         </button>
                         <ul class='dropdown-menu'>
-                            <li><a class='dropdown-item' href='/user/sign-in'>Đăng Nhập</a></li>
-                            <li><a class='dropdown-item' href='/user/sign-up'>Đăng Ký</a></li>
-                            {{! <li><hr class='dropdown-divider' /></li> }}
+                            {{#if user}}
+                                <li><a class='dropdown-item' href='/user/my-account'>Quản Lý Tài Khoản</a></li>
+                                <li><a class='dropdown-item' href='/user/sign-out'>Đăng Xuất</a></li>
+                            {{else}}
+                                <li><a class='dropdown-item' href='/user/sign-in'>Đăng Nhập</a></li>
+                                <li><a class='dropdown-item' href='/user/sign-up'>Đăng Ký</a></li>
+                            {{/if}}
                         </ul>
                     </div>
                 </div>

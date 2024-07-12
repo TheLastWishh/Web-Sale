@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*=========================================================
 	01 -> GENERAL
 ===========================================================*/
@@ -9,6 +10,9 @@ body {
   font-size: 14px;
   font-weight: 400;
   color: #333; }
+
+main {
+  margin-bottom: 40px; }
 
 h1,
 h2,
@@ -214,6 +218,30 @@ textarea.input {
 
 #breadcrumb .breadcrumb-tree li a:hover {
   color: #d10024; }
+
+/*----------------------------*\
+	Back to top
+\*----------------------------*/
+.back-to-top {
+  position: fixed;
+  display: none;
+  background: #d10024;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 1;
+  font-size: 16px;
+  border-radius: 4px;
+  right: 15px;
+  bottom: 15px;
+  transition: background 0.5s;
+  z-index: 11;
+  cursor: pointer; }
+
+.back-to-top i {
+  padding-top: 12px;
+  color: #ffffff; }
 
 /*=========================================================
 	02 -> HEADER
@@ -445,6 +473,9 @@ textarea.input {
 /*----------------------------*\
 	Product Slider
 \*----------------------------*/
+.product-list {
+  position: relative; }
+
 .banner-list {
   background-color: #6fcbdc;
   border-radius: 10px; }
@@ -454,6 +485,43 @@ textarea.input {
 
 .banner-item img {
   width: 100%; }
+
+.product-slider {
+  position: relative; }
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 60px;
+  background-color: rgba(86, 83, 83, 0.5);
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 20px; }
+
+/* Nút điều hướng tiếp theo */
+.swiper-button-next {
+  right: 10px; }
+
+/* Nút điều hướng trước đó */
+.swiper-button-prev {
+  left: 10px; }
+
+/* Định dạng cho các chấm chỉ báo */
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; }
 
 /*=========================================================
 	04 -> FOOTER

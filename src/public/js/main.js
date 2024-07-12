@@ -194,15 +194,14 @@
     });
 
     $(document).ready(function () {
-        $('#product-slider').slick({
+        $('#product-slider-1').slick({
             slidesToShow: 5,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 2000,
-            nextArrow: $('.swiper-button-next'),
-            prevArrow: $('.swiper-button-prev'),
+            nextArrow: $('.next-1'),
+            prevArrow: $('.prev-1'),
             dots: true,
-            appendDots: $('.swiper-pagination'),
             responsive: [
                 {
                     breakpoint: 1024,
@@ -228,6 +227,94 @@
                     },
                 },
             ],
+        });
+
+        $('#product-slider-2').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            nextArrow: $('.next-2'),
+            prevArrow: $('.prev-2'),
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true,
+                    },
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+                },
+            ],
+        });
+
+        $('#product-slider-3').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            nextArrow: $('.next-3'),
+            prevArrow: $('.prev-3'),
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true,
+                    },
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+                },
+            ],
+        });
+    });
+
+    // Back to top button
+    $(document).ready(function () {
+        // Hiển thị hoặc ẩn nút "Back to top" dựa trên vị trí cuộn trang
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.back-to-top').fadeIn('slow');
+            } else {
+                $('.back-to-top').fadeOut('slow');
+            }
+        });
+
+        // Khi nút "Back to top" được nhấn, cuộn lên đầu trang
+        $('.back-to-top').click(function (e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         });
     });
 })(jQuery);
