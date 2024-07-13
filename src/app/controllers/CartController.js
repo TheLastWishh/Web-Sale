@@ -1,5 +1,6 @@
 const modelCart = require('../model/model_cart');
 const modelStore = require('../model/model_store');
+const modelUser = require('../model/model_user');
 const db = require('../model/database');
 
 class CartController {
@@ -196,6 +197,19 @@ class CartController {
         let purchaseOrderInfo = await modelCart.getPurchaseOrderInfo(purchasrOrderID);
         let purchaseOrderDetails = purchaseOrderInfo.purchaseOrderDetails;
         res.render('cart/purchase-order-details', {purchaseOrderInfo: purchaseOrderInfo, purchaseOrderDetails: purchaseOrderDetails, user: user});
+    }
+
+    async searchPurchaseOrder(req, res, next) {
+        if (req.session.User) {
+            let listOrders = await modelUser.getAllPurchaseOrders();
+            listOrders.forEach((item) => {
+                item.OrderDate = item.OrderDate.toLocaleString();
+            });
+            res.render('cart/search-order', {user: req.session.User, listOrders: listOrders});
+        } else {
+            req.session.back = '/cart/search-purchase-order';
+            res.redirect('/user/sign-in');
+        }
     }
 }
 
