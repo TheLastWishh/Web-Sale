@@ -84,40 +84,46 @@ class UserController {
     async store(req, res, next) {
         const {username, firstname, lastname, email, phone, password, retypePassword, address} = req.body;
         let checkUsername = await modelUser.checkUsername(username);
+        let checkEmail = await modelUser.checkEmail(email);
 
         if (!checkUsername) {
-            if (password === retypePassword && password != '') {
-                var salt = bcrypt.genSaltSync(10); // Tạo chuỗi salt thêm vào mật khẩu
-                var pass = bcrypt.hashSync(password, salt); // Mã hóa mật khẩu
-                let userid = await modelUser.generateID();
-                let shoppingCartID = userid;
-                let lockUser = 'Unlock';
+            if (!checkEmail) {
+                if (password === retypePassword && password != '') {
+                    var salt = bcrypt.genSaltSync(10); // Tạo chuỗi salt thêm vào mật khẩu
+                    var pass = bcrypt.hashSync(password, salt); // Mã hóa mật khẩu
+                    let userid = await modelUser.generateID();
+                    let shoppingCartID = userid;
+                    let lockUser = 'Unlock';
 
-                let user_info = {
-                    userid: userid,
-                    username: username,
-                    firstName: firstname,
-                    lastName: lastname,
-                    email: email,
-                    phoneNumber: phone,
-                    password: pass,
-                    address: address,
-                    lockUser: lockUser,
-                    role: 0,
-                };
+                    let user_info = {
+                        userid: userid,
+                        username: username,
+                        firstName: firstname,
+                        lastName: lastname,
+                        email: email,
+                        phoneNumber: phone,
+                        password: pass,
+                        address: address,
+                        lockUser: lockUser,
+                        role: 0,
+                    };
 
-                let sql1 = 'INSERT INTO user SET ?';
-                db.query(sql1, user_info);
-                let sql2 = `INSERT INTO shoppingcart (ShoppingCartID, UserID) VALUES (?, ?)`;
-                db.query(sql2, [shoppingCartID, userid]);
+                    let sql1 = 'INSERT INTO user SET ?';
+                    db.query(sql1, user_info);
+                    let sql2 = `INSERT INTO shoppingcart (ShoppingCartID, UserID) VALUES (?, ?)`;
+                    db.query(sql2, [shoppingCartID, userid]);
 
-                res.redirect('/user/sign-up-successfully');
+                    res.redirect('/user/sign-up-successfully');
+                } else {
+                    res.redirect('/user/sign-up');
+                }
             } else {
-                res.redirect('/user/sign-up');
+                let mess = 'Email đã tồn tại!';
+                res.render('users/signup', {message2: mess});
             }
         } else {
             let mess = 'Tên đăng nhập đã tồn tại!';
-            res.render('users/signup', {message: mess});
+            res.render('users/signup', {message1: mess});
         }
     }
 
@@ -251,9 +257,8 @@ class UserController {
             }
 
             req.session.destroy();
-            let user = req.session.User;
             let mess = 'Cập nhật thông tin người dùng thành công!';
-            res.render('users/successful', {message: mess, user: user});
+            res.render('users/successful', {message: mess});
         } else {
             return;
         }
